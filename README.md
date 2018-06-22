@@ -1,7 +1,6 @@
 # instructions 
 
 1. get flask app running in docker container and demonstrate that you can test it locally 
-	* try to make the docker image as small as possible and make it build as quickly as possible 
 
 2. once the flask app is running we will manually push it to dockerhub 
 
