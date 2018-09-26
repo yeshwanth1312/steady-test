@@ -5,6 +5,9 @@ pipeline {
       environment {
         imageTag = 'sampleflask'
       }
+      options {
+        timeout(time:60, unit: 'SECONDS')
+      }
       steps {
         sh('sudo docker build -t ${imageTag} .')
         sh('sudo docker push ${imageTag}')
