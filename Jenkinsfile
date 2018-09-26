@@ -7,8 +7,8 @@ pipeline {
       }
       steps {
         sh('sudo docker build -t ${imageTag} .')
-        sh("docker push ${imageTag}")
-        sh('docker run -d -p 5000:5000 ${imageTag}')
+        sh('sudo docker push ${imageTag}')
+        sh('sudo  docker run -d -p 5000:5000 ${imageTag}')
       }
     }
   }
