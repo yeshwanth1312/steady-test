@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Building the docker image') {
       environment {
-        imageTag = 'sampleflask'
+        imageTag = 'sampleflask:latest'
       }
       options {
         timeout(time:180, unit: 'SECONDS')
