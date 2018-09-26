@@ -1,18 +1,15 @@
 pipeline {
-  agent any  
-  stages {
-    stage('Building the docker image') {
-      environment {
-        imageTag = 'sampleflask:latest'
-      }
-      options {
-        timeout(time:180, unit: 'SECONDS')
-      }
-      steps {
-        sh('sudo docker build -t ${imageTag} .')
-        sh('sudo docker push ${imageTag}')
-        sh('sudo  docker run -d -p 5000:5000 ${imageTag}')
-      }
+    agent any
+    stages {
+        stage('Build image') {
+            steps {
+                echo 'Starting to build docker image'
+
+                script {
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    customImage.push()
+                }
+            }
+        }
     }
-  }
 }
