@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Building the docker image') {
       steps {
-        sh("docker build -t ${imageTag} .")
+        sh('docker build -t ${imageTag} .')
       }
     }
      stage('Push image to registry') {
