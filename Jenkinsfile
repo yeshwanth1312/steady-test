@@ -6,7 +6,7 @@ pipeline {
         imageTag = 'sampleflask'
       }
       steps {
-        sh('docker build -t ${imageTag} .')
+        sh('sudo docker build -t ${imageTag} .')
       }
     }
   }
