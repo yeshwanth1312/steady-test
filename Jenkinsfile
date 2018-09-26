@@ -1,19 +1,20 @@
 pipeline {
+  environment {
+    registry = "cheruku459/rajasekhar"
+    registryCredential = "dockerhub"
+  }
   agent any  
   stages {
-    stage('Building the docker image') {
-      environment {
-        imageTag = 'sampleflask:latest'
-      }
-      options {
-        timeout(time:180, unit: 'SECONDS')
-      }
+    stage('Cloning Git') {
       steps {
-        withDockerRegistry([credentialsId: 'cheruku459', url: 'docker.io/my-account']) {
+        git 'https://github.com/yeshwanth1312/steady-test.git'
+      }
+   }
+   stage('Building the docker image') {
+      steps{ 
+        script {  
+          docker.build registry + ":$BUILD_NUMBER"  
         }
-          sh('sudo docker build -t ${imageTag} .')
-          sh('sudo docker push ${imageTag}')
-          sh('sudo  docker run -d -p 5000:5000 ${imageTag}')
       }
     }
   }
