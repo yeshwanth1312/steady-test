@@ -1,5 +1,5 @@
 pipeline {
-  
+  agent none  
   environment {
     imageTag = sample-flask
   }
