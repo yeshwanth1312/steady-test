@@ -1,7 +1,7 @@
 pipeline {
   agent none  
   environment {
-    imageTag = sample-flask
+    imageTag = sampleflask
   }
   stages {
     stage('Building the docker image') {
