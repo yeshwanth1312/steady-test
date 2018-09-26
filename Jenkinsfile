@@ -9,7 +9,7 @@ pipeline {
         timeout(time:180, unit: 'SECONDS')
       }
       steps {
-        withDockerRegistry9[credentialsID: 'cheruku459', url: 'docker.io/my-account']) {
+        withDockerRegistry([credentialsID: 'cheruku459', url: 'docker.io/my-account']) {
         }
           sh('sudo docker build -t ${imageTag} .')
           sh('sudo docker push ${imageTag}')
