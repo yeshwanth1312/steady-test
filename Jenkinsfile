@@ -1,4 +1,3 @@
-# Declarative pipeline 
 pipeline {
   
   environment {
