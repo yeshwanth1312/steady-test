@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Building the docker image') {
       steps {
-        sh('sudo docker build -t  cheruku459/rajasekhar/${imageTag} .')
+        sh('sudo docker build -t  cheruku459/rajasekhar:${imageTag} .')
       }
     }
   
