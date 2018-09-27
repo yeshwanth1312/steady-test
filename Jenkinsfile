@@ -15,7 +15,7 @@ pipeline {
         withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubPasswd')]) {
           sh('sudo docker login -u cheruku459 -p ${dockerhubPasswd}')
         }
-        sh('sudo docker tag ${imageTag} cheruku459/rajasekhar:${imageTag}')
+        sh('sudo docker tag latest cheruku459/rajasekhar:${imageTag}')
         sh('sudo docker push cheruku459/rajasekhar:${imageTag}')
       }
     }
