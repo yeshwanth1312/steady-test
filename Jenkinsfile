@@ -19,5 +19,11 @@ pipeline {
         sh('sudo docker push cheruku459/rajasekhar:${imageTag}')
       }
     }
+    
+    stage('Running the container') { 
+      steps {
+        sh('sudo docker run -d -p 5000:5000 ${imageTag}')
+      }
+    }  
   }
 } 
