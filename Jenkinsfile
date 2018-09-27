@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Building the docker image') {
       steps {
-        sh('sudo docker build -t ${imageTag} .')
+        sh('sudo docker build -t  cheruku459/rajasekhar/${imageTag} .')
       }
     }
   
@@ -15,7 +15,7 @@ pipeline {
         withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubPasswd')]) {
           sh('sudo docker login -u cheruku459 -p ${dockerhubPasswd}')
         }
-        sh('sudo docker push cheruku459/${imageTag}')
+        sh('sudo docker push cheruku459/rajasekhar/${imageTag}')
       }
     }
   }
