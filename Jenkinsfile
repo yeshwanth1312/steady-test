@@ -12,11 +12,11 @@ pipeline {
   
     stage('Push image to registry') {
       steps {
-        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubPasswd')]) {
-          sh('sudo docker login -u cheruku459 -p ${dockerhubPasswd}')
+        withCredentials([string(credentialsId: 'docker', variable: 'dockerhubPasswd')]) {
+          sh('sudo docker login -u yeshwanthjavvaji -p ${dockerhubPasswd}')
         }
-        sh('sudo docker tag ${imageTag} cheruku459/rajasekhar:${imageTag}')
-        sh('sudo docker push cheruku459/rajasekhar:${imageTag}')
+        sh('sudo docker tag ${imageTag} yeshwanthjavvaji/steady:${imageTag}')
+        sh('sudo docker push yeshwanthjavvaji/steady:${imageTag}')
       }
     }
     
